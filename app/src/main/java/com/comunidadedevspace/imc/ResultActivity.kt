@@ -1,9 +1,12 @@
 package com.comunidadedevspace.imc
 
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.toColor
+import androidx.core.graphics.toColorInt
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -33,5 +36,17 @@ class ResultActivity : AppCompatActivity() {
                 "OBESIDADE GRAVE"
             }
         tvClassificacao.text = classificacao
+
+        val corResultado = when (classificacao){
+            "MAGREZA" -> Color.BLUE
+            "NORMAL" -> Color.BLACK
+            "OBESIDADE" -> Color.RED
+            "OBESIDADE GRAVE" -> Color.RED
+            else -> Color.BLACK
+
+        }
+
+        tvClassificacao.setTextColor(corResultado)
+
     }
 }
